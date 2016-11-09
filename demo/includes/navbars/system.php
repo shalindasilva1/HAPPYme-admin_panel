@@ -7,7 +7,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">ABC inc.</a>
+        <a class="navbar-brand" href="#">HappyME inc. &copy;</a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
@@ -29,7 +29,7 @@
               <img class="media-object dp img-circle" src="https://scontent-sin6-1.xx.fbcdn.net/v/t1.0-9/14925541_1175074529253102_7849170516612145016_n.jpg?oh=0f20876dc1712128486ed1d003b4bdbd&oe=588CCB7A" style="width: 100px;height:100px; margin: 17px 0px 0px 17px; ">
             </a>
             <div class="media-body">
-              <h2>ABC inc. &copy;</h2>
+              <h2>HappyME inc. &copy;</h2>
               <h3 class="media-heading">Shalinda Silva <br><small> Admin</small></h4>
               </div>
             </div>
@@ -49,4 +49,3 @@
             <h3 class="text-center" style="margin:10px">System Users</h3>
           </div>
         </div>
-  
