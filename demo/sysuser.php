@@ -6,7 +6,8 @@
   <div class="row">
     <div class="col-sm-8">
       <div class="well">
-        <h4>Update / Delete</h4>
+        <h4 tyle="float:right">Update / Delete</h4>
+        <p style="margin-bottom:10px;float:right" data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-sm pull-right" data-title="Edit" data-toggle="modal" data-target="#add" >Add new user</button></p>
         <table class="table table-bordered" style="display: block; height: 310px; overflow: auto;">
 
           <thead>
@@ -57,30 +58,6 @@
           </table>
         </div>
       </div>
-      <div class="col-sm-4">
-        <div class="well">
-          <h4>Add System User</h4>
-          <form>
-            <div class="form-group">
-              <label for="user_name">User Name:</label>
-              <input type="text" class="form-control" id="user_name" required>
-            </div>
-            <div class="form-group">
-              <label for="pwd">Password:</label required>
-                <input type="password" class="form-control" id="pwd">
-              </div>
-              <div class="form-group">
-                <label for="user_name">Created Time:</label>
-                <input type="text" class="form-control" id="user_name">
-              </div>
-              <div class="form-group">
-                <label for="user_name">Created By:</label>
-                <input type="text" class="form-control" id="user_name" required>
-              </div>
-              <button type="submit" class="btn btn-default">Submit</button>
-            </form>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -88,6 +65,44 @@
 </div>
 </div>
 </div>
+
+
+<!--add-->
+<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        <h4 class="modal-title custom_align" id="Heading">Add New System User Detail</h4>
+      </div>
+      <div class="modal-body">
+        <form action="" method="post">
+
+          <div class="form-group">
+
+            <input class="form-control " type="text" placeholder="User Name" required>
+          </div>
+          <div class="form-group">
+            <input class="form-control " type="text" placeholder="Password" required>
+
+          </div>
+          <div class="form-group">
+            <input class="form-control " type="text" placeholder="Created By" required>
+
+          </div>
+        </div>
+        <div class="modal-footer ">
+          <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+        </div>
+
+      </form>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+
+
 
 <!--edit-->
 <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">

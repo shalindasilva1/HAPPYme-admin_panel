@@ -34,7 +34,7 @@
               </div>
             </div>
           </div>
-          <hr>
+          <hr style="border-top: 1px solid #c1bbbb;">
           <h3>Admin Panel</h3>
           <ul class="nav nav-pills nav-stacked">
             <li class="active"><a href="sysuser.php">System Users</a></li>
