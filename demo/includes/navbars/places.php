@@ -26,11 +26,12 @@
         <div class="row">
           <div class="media">
             <a class="pull-left" href="#">
-              <img class="media-object dp img-circle" src="https://scontent-sin6-1.xx.fbcdn.net/v/t1.0-9/14925541_1175074529253102_7849170516612145016_n.jpg?oh=0f20876dc1712128486ed1d003b4bdbd&oe=588CCB7A" style="width: 100px;height:100px; margin: 17px 0px 0px 17px; ">
+              <img class="media-object dp img-circle" src="imgs/logo.png" style="width: 100px;height:100px; margin: 17px 0px 0px 17px; ">
             </a>
             <div class="media-body">
               <h2>HappyME inc. &copy;</h2>
-              <h3 class="media-heading">Shalinda Silva <br><small> Admin</small></h4>
+              <h3 class="media-heading"><?php echo ($user_data['user_name']);?><br><small><?php echo ($user_data['type']);?></small></h4>
+                  <a class="btn btn-primary btn-sm pull-right" style="margin-right:19px;"href="logout.php">Logout</a>
               </div>
             </div>
           </div>

@@ -1,70 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php include 'core/init.php'; ?>
 <?php include 'includes/head.php'; ?>
 <?php include 'includes/navbars/system.php' ?>
-<div class="col-sm-9">
+<?php
+function sysuser_data(){
+  $query = mysql_query("SELECT `suid`,`user_name`,`password`,`created_time`,`created_by` from `systemuser`");
+  echo '<div class="col-sm-9">
   <div class="row">
-    <div class="col-sm-8">
-      <div class="well">
-        <h4 tyle="float:right">Update / Delete</h4>
-        <p style="margin-bottom:10px;float:right" data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-sm pull-right" data-title="Edit" data-toggle="modal" data-target="#add" >Add new user</button></p>
-        <table class="table table-bordered" style="display: block; height: 310px; overflow: auto;">
+  <div class="col-sm-8">
+  <div class="well">
+  <h4 tyle="float:right">Update / Delete</h4>
+  <p style="margin-bottom:10px;float:right" data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-sm pull-right" data-title="Edit" data-toggle="modal" data-target="#add" >Add new user</button></p>
+  <table class="table table-bordered" style="display: block; height: 310px; overflow: auto;">
 
-          <thead>
+  <thead>
 
-            <th>User ID</th>
-            <th>User Name</th>
-            <th>Password</th>
-            <th>Created Time</th>
-            <th>Created By</th>
+  <th>User ID</th>
+  <th>User Name</th>
+  <th>Password</th>
+  <th>Created Time</th>
+  <th>Created By</th>
 
 
-            <th colspan="2">Edit</th>
-          </thead>
-          <tbody>
+  <th colspan="2">Edit</th>
+  </thead>
+  <tbody>';
+  while ($data =mysql_fetch_array($query)) {
+    $suid = $data[0];
+    $user_name = $data[1];
+    $password =$data[2];
+    $created_time = $data[3];
+    $created_by = $data[4];
+    echo "<tr>";
+    echo"<td>
+    {$suid}
+    </td>";
+    echo "<td>
+    {$user_name}
+    </td>";
+    echo "<td>
+    {$password}
+    </td>";
+    echo "<td>
+    {$created_time}
+    </td>";
+    echo "<td>
+    {$created_by}
+    </td>";
+    echo '<td><p data-placement="top" data-toggle="tooltip" title="Edit"><button name="suid" value="'. $suid .'" class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
 
-              <tr>
-
-                <td>Mohsin</td>
-                <td>Irshad</td>
-                <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
-                <td>isometric.mohsin@gmail.com</td>
-                <td>+923335586757</td>
-                <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-                <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
-              </tr>
-
-              <tr>
-
-                <td>Mohsin</td>
-                <td>Irshad</td>
-                <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
-                <td>isometric.mohsin@gmail.com</td>
-                <td>+923335586757</td>
-                <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-                <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
-              </tr>
-
-              <tr>
-                <td>Mohsin</td>
-                <td>Irshad</td>
-                <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
-                <td>isometric.mohsin@gmail.com</td>
-                <td>+923335586757</td>
-                <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-                <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      </div>
-    </div>
+    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>';
+    echo"</tr>";
+  }
+  echo"
+  </table>
+  </div>
+  </div>
+  </div>
+  </div>
   </div>
 
-</div>
-</div>
-</div>
+  </div>
+  </div>
+  </div>";
+
+}
+sysuser_data();
+
+?>
 
 
 <!--add-->
@@ -75,26 +79,26 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
         <h4 class="modal-title custom_align" id="Heading">Add New System User Detail</h4>
       </div>
-      <div class="modal-body">
-        <form action="" method="post">
-
+      <form action="actionsysuser.php" method="post">
+        <div class="modal-body">
           <div class="form-group">
-
-            <input class="form-control " type="text" placeholder="User Name" required>
+            <input class="form-control " type="text"  name="username" placeholder="User Name" required>
           </div>
           <div class="form-group">
-            <input class="form-control " type="text" placeholder="Password" required>
+            <input class="form-control" type="text" name="createdby" placeholder="Created By" required>
 
           </div>
           <div class="form-group">
-            <input class="form-control " type="text" placeholder="Created By" required>
-
+            <p>
+              default password will be "password"
+            </p>
           </div>
         </div>
         <div class="modal-footer ">
-          <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
-        </div>
+          <input type="submit" class="btn btn-warning btn-lg" style="width: 100%;"></input>
 
+        </div>
+        <input type="hidden" name="fno" value="1">
       </form>
     </div>
     <!-- /.modal-content -->
@@ -113,32 +117,24 @@
         <h4 class="modal-title custom_align" id="Heading">Edit System User Detail</h4>
       </div>
       <div class="modal-body">
-        <form action="" method="post">
-
-          <div class="form-group">
-            <input class="form-control " type="text" placeholder="User ID">
-          </div>
+        <form action="actionsysuser.php" method="post">
           <div class="form-group">
 
-            <input class="form-control " type="text" placeholder="User Name">
+            <input class="form-control " name="username" type="text" placeholder="User Name">
           </div>
           <div class="form-group">
-            <input class="form-control " type="text" placeholder="Password">
+            <input class="form-control " name="password" type="text" placeholder="Password">
 
           </div>
           <div class="form-group">
-            <input class="form-control " type="time" placeholder="Created Time">
-
-          </div>
-          <div class="form-group">
-            <input class="form-control " type="text" placeholder="Created By">
+            <input class="form-control " name="created_by" type="text" placeholder="Created By">
 
           </div>
         </div>
         <div class="modal-footer ">
-          <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+          <input type="submit" class="btn btn-warning btn-lg" style="width: 100%;"></button>
         </div>
-
+        <input type="hidden" name="fno" value="2">
       </form>
     </div>
     <!-- /.modal-content -->

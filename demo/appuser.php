@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php include 'core/init.php'; ?>
 <?php include 'includes/head.php'; ?>
 <?php include 'includes/navbars/app.php' ?>
 <div class="col-sm-9">
